@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: vehicles.VehicleControllerTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.023 s <<< FAILURE! - in vehicles.VehicleControllerTests
+testDeleteProduct  Time elapsed: 1.247 s  <<< ERROR!
+java.lang.NullPointerException
+	at vehicles.VehicleControllerTests.testDeleteProduct(VehicleControllerTests.java:31)
+

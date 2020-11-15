@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Mitchell Vehicles</title>
+</head>
+<body>
+<div align="center">
+    <h1>Vehicle List</h1>
+    <a href="/new">Add a New Vehicle</a>
+    <br/><br/>
+    <form th:action="@{/}">
+        Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}"/>
+        &nbsp;
+        <input type="submit" value="Search" />
+        &nbsp;
+        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+
+    <script type="text/javascript">
+        function clearSearch() {
+            window.location = "[[@{/}]]";
+        }
+    </script>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Year</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="car : ${listVehicles}">
+                <td th:text="${car.id}">Product ID</td>
+                <td th:text="${car.year}">Year</td>
+                <td th:text="${car.make}">Make</td>
+                <td th:text="${car.model}">Model</td>
+                <td>
+                    <a th:href="@{'/update/' + ${car.id}}">Update</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${car.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
